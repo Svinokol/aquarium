@@ -1,0 +1,11 @@
+@mixin rounded_corners ($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin page_centered(){
+  max-width: 1200px;
+  display : block;
+  margin: 0 auto;
+}

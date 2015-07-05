@@ -1,0 +1,44 @@
+{namespace components}
+
+/**
+  * Card with image template
+  * @param title
+  * @param imageSrc
+  * @param content
+  * @param link
+  * @param linkText
+  */
+{template .cardWithImage}
+  <div class="card hoverable">
+      <div class="card-image">
+        <img src="{$imageSrc}">
+        <span class="card-title">{$title}</span>
+      </div>
+      <div class="card-content">
+        <p>{$content}</p>
+      </div>
+      <div class="card-action">
+        <a href="{$link}">{$linkText}</a>
+      </div>
+  </div>
+{/template}
+
+/**
+ * Slider
+ * @param slides
+ */
+{template .slider}
+   <div class="slider">
+       <ul class="slides">
+         {foreach $slide in $slides}
+             <li>
+               <img src="{$slide.image}">
+               <div class="caption center-align">
+                 <h3>{$slide.title}</h3>
+                 <h5 class="light grey-text text-lighten-3">{$slide.text}</h5>
+               </div>
+             </li>
+         {/foreach}
+       </ul>
+   </div>
+{/template}

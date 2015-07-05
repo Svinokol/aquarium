@@ -1,0 +1,33 @@
+@import "materialize";
+@import "mixins";
+
+header{
+  display: block;
+  width: 100%;
+}
+main{
+  @include page_centered();
+  padding-top: 40px;
+}
+.logo-container{
+   @include page_centered();
+  .logo-text{
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
+    font-size: 74px;
+    line-height: 100px;
+    text-align: center;
+  }
+}
+
+.row-title{
+  font-weight: 200;
+}
+
+nav{
+  .brand-logo{
+    padding-left: 40px;
+  }
+}
+
+

@@ -1,0 +1,106 @@
+{namespace site}
+
+/**
+ * Footer template
+ */
+{template .footer}
+  <footer class="page-footer white">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="black-text">Контакты</h5>
+          <p class="black-text text-lighten-4">
+            ТЦ Аквариум находится по адресу:
+            <br/> г. Самара, ул. Мичурина, 15.
+            <br/> тел.: (846) 302-16-02, факс: 302-05-02.
+            <br/> e-mail: secunda@samaramail.ru
+          </p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="black-text">Ссылки</h5>
+          <ul>
+            <li><a class="black-texttext-lighten-3" href="#!">Контакты</a></li>
+            <li><a class="black-text text-lighten-3" href="#!">О нас</a></li>
+            <li><a class="black-text text-lighten-3" href="#!">Схема проезда</a></li>
+            <li><a class="black-text text-lighten-3" href="#!">Реклама</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container black-text">
+      © 2015 ТТЦ Аквариум
+      <a class="black-text text-lighten-4 right" href="#!">Created by Efim Matytsin</a>
+      </div>
+    </div>
+  </footer>
+{/template}
+
+/**
+ * Header template
+ * @param title
+ */
+{template .header}
+  <header>
+    <div class="logo-container">
+       <div class="logo-text">{$title}</div>
+    </div>
+  </header>
+{/template}
+
+/**
+ * Navigation template
+ * @param logo
+ * @param logoLink
+ * @param links
+ */
+{template .navigation}
+  <nav>
+      <div class="nav-wrapper">
+        <a href="{$logoLink}" class="brand-logo">{$logo}</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        {foreach $link in $links}
+          <li><a href="{$link.url}">{$link.title}</a></li>
+        {/foreach}
+        </ul>
+      </div>
+  </nav>
+{/template}
+
+
+/**
+  * Main template
+  * @param slides
+  */
+{template .main}
+  <main>
+  <div class="row">
+    {call components.slider}
+      {param slides:$slides /}
+    {/call}
+  </div>
+    <div class="row">
+      <div class="col s6">
+        <h3 class="row-title">Для покупателей</h2>
+        {call components.cardWithImage}
+          {param title: 'Покупателям' /}
+          {param imageSrc: 'images/landing1.jpg' /}
+          {param content: 'Откройте для себя богатые возможности ТЦ Аквариум' /}
+          {param link: 'customers.html' /}
+          {param linkText: 'Перейти на страницу для покупателей' /}
+        {/call}
+      </div>
+      <div class="col s6">
+      <h3 class="row-title">Для арендаторов</h2>
+      {call components.cardWithImage}
+          {param title: 'Арендаторам' /}
+          {param imageSrc: 'images/landing2.jpg' /}
+          {param content: 'Откройте для себя богатые возможности ТЦ Аквариум' /}
+          {param link: 'business.html' /}
+          {param linkText: 'Перейти на страницу для арендаторов' /}
+      {/call}
+      </div>
+    </div>
+  </main>
+{/template}
+
