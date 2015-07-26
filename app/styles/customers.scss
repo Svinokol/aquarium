@@ -1,0 +1,17 @@
+@import "materialize";
+@import "mixins";
+
+
+.feature{
+  display: inline-block;
+  width: 270px;
+  position:relative;
+  margin: 10px;
+
+  .feature-logo{
+    margin: 0 auto;
+  }
+  .feature-title{
+    margin: 0 auto;
+  }
+}

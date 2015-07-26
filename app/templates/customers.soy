@@ -1,0 +1,66 @@
+{namespace customers}
+
+/**
+* Main template
+* @param categories
+*/
+{template .main}
+    <div class="row">
+        {call .featureCategories}
+            {param categories:$categories/}
+        {/call}
+    </div>
+{/template}
+
+
+/**
+* Feature categories template
+* @param categories
+*/
+{template .featureCategories}
+    <div class="row">
+    {foreach $category in $categories}
+        {call .featureCategory}
+            {param category:$category/}
+        {/call}
+    {/foreach}
+    </div>
+{/template}
+
+
+/**
+* Feature category
+* @param category
+*/
+{template .featureCategory}
+    <div class="feature-category">
+        <h2 class="row-title">{$category.title}</h2>
+        <div class="divider"></div>
+        <div class="row">
+            {foreach $feature in $category.features}
+                {call .feature}
+                    {param feature:$feature/}
+                {/call}
+            {/foreach}
+        </div>
+    </div>
+{/template}
+
+
+/**
+* Feature template
+* @param feature
+*/
+{template .feature}
+       <div class="feature">
+          <div class="card {if $feature.front}z-depth-3{/if} hoverable">
+            <div class="card-image">
+              <img src="{$feature.logoUrl}">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-action">
+              <a href="#">{$feature.title}</a>
+            </div>
+          </div>
+        </div>
+{/template}

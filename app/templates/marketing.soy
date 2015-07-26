@@ -1,0 +1,20 @@
+{namespace marketing}
+
+
+/**
+* Template order
+* @param title
+* @param formData
+* @param text
+*/
+{template .order}
+<div class="row">
+    {call components.formLayout}
+        {param title:$title/}
+        {param formData:$formData/}
+    {/call}
+    <div class="card-panel col s6  grey lighten-3">
+        {$text}
+    </div>
+</div>
+{/template}

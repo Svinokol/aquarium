@@ -5,8 +5,7 @@
   * @param title
   * @param imageSrc
   * @param content
-  * @param link
-  * @param linkText
+  * @param links
   */
 {template .cardWithImage}
   <div class="card hoverable">
@@ -18,7 +17,9 @@
         <p>{$content}</p>
       </div>
       <div class="card-action">
-        <a href="{$link}">{$linkText}</a>
+        {foreach $link in $links}
+             <a href="{$link.url}">{$link.title}</a>
+        {/foreach}
       </div>
   </div>
 {/template}
@@ -42,3 +43,137 @@
        </ul>
    </div>
 {/template}
+
+/**
+* Template form
+* @param title
+* @param formData
+*/
+{template .formLayout}
+<div class="row">
+    <h2 class="row-title">{$title}</h2>
+</div>
+ <form class="col s6 card-panel">
+    {foreach $row in $formData.rows}
+        {delcall formRow variant="$row.type"}
+            {param row:$row/}
+        {/delcall}
+    {/foreach}
+ </form>
+{/template}
+
+/**
+*  Template text input
+*  @param row
+*/
+{deltemplate formRow variant="'text'"}
+    <div class="row">
+         <div class="input-field col s12">
+            <input id="{$row.id}" type="text" class="validate">
+            <label for="{$row.id}">{$row.title}</label>
+         </div>
+     </div>
+{/deltemplate}
+
+/**
+*  Template password input
+*  @param row
+*/
+{deltemplate formRow variant="'password'"}
+    <div class="row">
+         <div class="input-field col s12">
+            <input id="{$row.id}" type="password" class="validate">
+            <label for="{$row.id}">{$row.title}</label>
+         </div>
+     </div>
+{/deltemplate}
+
+/**
+*  Template email input
+*  @param row
+*/
+{deltemplate formRow variant="'email'"}
+    <div class="row">
+         <div class="input-field col s12">
+            <input id="{$row.id}" type="email" class="validate">
+            <label for="{$row.id}">{$row.title}</label>
+         </div>
+     </div>
+{/deltemplate}
+
+/**
+*  Template select input
+*  @param row
+*/
+{deltemplate formRow variant="'select'"}
+    <div class="row">
+         <div class="input-field col s12">
+             <select id="{$row.id}">
+                {foreach $option in $row.options}
+                    <option value="{$option.value}"
+                    {if $option.selected}selected{/if}
+                    {if $option.disabled}disabled{/if}
+                    >{$option.title}</option>
+                {/foreach}
+             </select>
+             <label>{$row.title}</label>
+           </div>
+     </div>
+{/deltemplate}
+
+/**
+*  Template email input
+*  @param row
+*/
+{deltemplate formRow variant="'submit'"}
+    <div class="row">
+         <div class="input-field col s12">
+           <button class="btn waves-effect waves-light" type="submit" name="action">{$row.title}
+               <i class="material-icons">send</i>
+             </button>
+         </div>
+     </div>
+{/deltemplate}
+
+/**
+*  Template file input
+*  @param row
+*/
+{deltemplate formRow variant="'file'"}
+    <div class="row">
+         <div class="file-field input-field col s12">
+           <input class="file-path validate" type="text"/>
+                <div class="btn">
+                  <span>{$row.title}</span>
+                  <input type="file" />
+           </div>
+         </div>
+     </div>
+{/deltemplate}
+
+/**
+*  Template date input
+*  @param row
+*/
+{deltemplate formRow variant="'date'"}
+    <div class="row">
+         <div class="input-field col s12">
+          <input id="{$row.id}" type="date" class="datepicker">
+          <label for="{$row.id}">{$row.title}</label>
+         </div>
+     </div>
+{/deltemplate}
+
+/**
+*  Template textarea input
+*  @param row
+*/
+{deltemplate formRow variant="'textarea'"}
+    <div class="row">
+         <div class="input-field col s12">
+          <textarea id="{$row.id}" class="materialize-textarea" length="{$row.length}"></textarea>
+          <label for="{$row.id}">{$row.title}</label>
+         </div>
+     </div>
+{/deltemplate}
+

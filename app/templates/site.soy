@@ -7,7 +7,7 @@
   <footer class="page-footer white">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
+        <div class="col  s4">
           <h5 class="black-text">Контакты</h5>
           <p class="black-text text-lighten-4">
             ТЦ Аквариум находится по адресу:
@@ -16,7 +16,11 @@
             <br/> e-mail: secunda@samaramail.ru
           </p>
         </div>
-        <div class="col l4 offset-l2 s12">
+         <div class="col s4">
+                  <h5 class="black-text">Карта</h5>
+                  <img class="responsive-img" src="images/map1.png">
+         </div>
+        <div class="col s4">
           <h5 class="black-text">Ссылки</h5>
           <ul>
             <li><a class="black-texttext-lighten-3" href="#!">Контакты</a></li>
@@ -34,7 +38,9 @@
       </div>
     </div>
   </footer>
+
 {/template}
+
 
 /**
  * Header template
@@ -70,37 +76,30 @@
 
 /**
   * Main template
-  * @param slides
+  * @param linksCustomer
+  * @param linksBusiness
   */
 {template .main}
-  <main>
-  <div class="row">
-    {call components.slider}
-      {param slides:$slides /}
-    {/call}
-  </div>
+
     <div class="row">
       <div class="col s6">
         <h3 class="row-title">Для покупателей</h2>
         {call components.cardWithImage}
-          {param title: 'Покупателям' /}
+          {param title: '' /}
           {param imageSrc: 'images/landing1.jpg' /}
           {param content: 'Откройте для себя богатые возможности ТЦ Аквариум' /}
-          {param link: 'customers.html' /}
-          {param linkText: 'Перейти на страницу для покупателей' /}
+          {param links: $linksCustomer /}
         {/call}
       </div>
       <div class="col s6">
       <h3 class="row-title">Для арендаторов</h2>
       {call components.cardWithImage}
-          {param title: 'Арендаторам' /}
+          {param title: '' /}
           {param imageSrc: 'images/landing2.jpg' /}
           {param content: 'Откройте для себя богатые возможности ТЦ Аквариум' /}
-          {param link: 'business.html' /}
-          {param linkText: 'Перейти на страницу для арендаторов' /}
+          {param links: $linksBusiness /}
       {/call}
       </div>
     </div>
-  </main>
 {/template}
 

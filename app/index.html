@@ -28,9 +28,10 @@
     <meta name="theme-color" content="#3372DF">
 
     <link rel="stylesheet" href="styles/main.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="utils/soyutils.js"></script>
     <script src="scripts/templates.min.js"></script>
+
   </head>
   <body>
 
@@ -52,27 +53,61 @@
                 ]
               }
       ));
-      document.write(site.main({
-        slides:[
-        {
-          title:"",
-          image:"images/slides/1.jpg",
-          text:""
-        },
-        {
-          title:"",
-          image:"images/slides/2.jpg",
-          text:""
-        },
-        {
-          title:"",
-          image:"images/slides/3.jpg",
-          text:""
-        }
-      ]}));
+
+
+    </script>
+    <main>
+      <div class="row">
+        <script type="text/javascript">
+          document.write(components.slider({
+            slides:[
+              {
+                title:"",
+                image:"images/slides/1.jpg",
+                text:""
+              },
+              {
+                title:"",
+                image:"images/slides/2.jpg",
+                text:""
+              },
+              {
+                title:"",
+                image:"images/slides/3.jpg",
+                text:""
+              }
+            ]}));
+        </script>
+      </div>
+      <script type="text/javascript">
+        document.write(site.main(
+                {
+                  linksCustomer: [
+                    {
+                      url: "customers.html",
+                      title: "Перейти на страницу для покупателей"
+                    }
+                  ],
+                  linksBusiness:[
+                    {
+                      url:"about.html",
+                      title:"Арендаторам"
+                    },
+                    {
+                      url:"business-order.html",
+                      title:"Заявка на аренду"
+                    },
+                    {
+                      url:"marketing-order.html",
+                      title:"Рекламодателям"
+                    }
+                  ]
+                }));
+      </script>
+    </main>
+    <script type="text/javascript">
       document.write(site.footer());
     </script>
-
     <script src="utils/jquery-2.1.4.min.js"></script>
     <script src="utils/materialize.min.js"></script>
     <script src="scripts/main.min.js"></script>
